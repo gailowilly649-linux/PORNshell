@@ -4,7 +4,7 @@
     <strong>Advanced Protocol Reconnaissance, Authoritative DNS Parity, RFC 5155 NSEC3 Cryptographic Verification & Automated Security Audit Suite</strong>
   </p>
   <p align="center">
-    <a href="#-core-capabilities"><img src="https://img.shields.io/badge/Architecture-Antigravity%20Skills-9cf?style=for-the-badge" alt="Antigravity Skills"></a>
+    <a href="#-core-capabilities"><img src="https://img.shields.io/badge/Architecture-WG%20Skills-9cf?style=for-the-badge" alt="Antigravity Skills"></a>
     <a href="#-quick-start-one-shot-master-suite"><img src="https://img.shields.io/badge/Pipeline-10%25%20%E2%9E%94%20100%25%20Auto-brightgreen?style=for-the-badge" alt="Automated Pipeline"></a>
     <a href="#-license--disclaimer"><img src="https://img.shields.io/badge/Security-Defensive%20Research-red?style=for-the-badge" alt="Security Research"></a>
     <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"></a>
