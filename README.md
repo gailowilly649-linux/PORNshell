@@ -1,98 +1,180 @@
-# 🐉 PORNshell Security & Bug Hunting Protocol Suite
-
-> **"Code is fiction until it executes."** — Designed for deep offensive protocol recon, source-to-sink vulnerability hunting, DNS split-brain detection, RFC 5155 NSEC3 cryptographic verification, and cloud/container hardening.
+<p align="center">
+  <h1 align="center">🐉 PORNshell</h1>
+  <p align="center">
+    <strong>Advanced Protocol Reconnaissance, Authoritative DNS Parity, RFC 5155 NSEC3 Cryptographic Verification & Automated Security Audit Suite</strong>
+  </p>
+  <p align="center">
+    <a href="#-core-capabilities"><img src="https://img.shields.io/badge/Architecture-Antigravity%20Skills-9cf?style=for-the-badge" alt="Antigravity Skills"></a>
+    <a href="#-quick-start-one-shot-master-suite"><img src="https://img.shields.io/badge/Pipeline-10%25%20%E2%9E%94%20100%25%20Auto-brightgreen?style=for-the-badge" alt="Automated Pipeline"></a>
+    <a href="#-license--disclaimer"><img src="https://img.shields.io/badge/Security-Defensive%20Research-red?style=for-the-badge" alt="Security Research"></a>
+    <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"></a>
+  </p>
+</p>
 
 ---
 
-## ⚡ Quick Start: The One-Shot Master Runner
+> *"Code is fiction until it executes."*  
+> **PORNshell** is a high-performance offensive recon and defensive auditing framework designed for security researchers, infrastructure architects, and penetration testers. It automates complex protocol-level verifications—ranging from multi-provider DNS split-brain detection to cryptographic NSEC3 hash proofs, AST taint analysis, and container privilege escalation auditing.
 
-Every tool in this repository features an interactive **10% ➔ 100% stage-by-stage visual progress pipeline** and runs with **zero mandatory flags**:
+---
+
+## 📑 Table of Contents
+- [✨ Core Capabilities](#-core-capabilities)
+- [⚡ Quick Start: One-Shot Master Suite](#-quick-start-one-shot-master-suite)
+- [🛠️ Deep-Dive: Standalone Modules](#️-deep-dive-standalone-modules)
+  - [1. Authoritative DNS & RFC 5155 NSEC3 Verifier](#1-authoritative-dns--rfc-5155-nsec3-verifier)
+  - [2. Static Codebase Sink & Injection Hunter](#2-static-codebase-sink--injection-hunter)
+  - [3. HTTP Security Header & CORS Desync Auditor](#3-http-security-header--cors-desync-auditor)
+  - [4. Cloud IAM & Container Manifest Escape Auditor](#4-cloud-iam--container-manifest-escape-auditor)
+  - [5. High-Entropy Secret & Token Leak Scanner](#5-high-entropy-secret--token-leak-scanner)
+  - [6. Security Regression & PoC Triage Scaffolder](#6-security-regression--poc-triage-scaffolder)
+- [🧠 Modular Agent Skills Architecture](#-modular-agent-skills-architecture)
+- [📊 Generated Reports & Artifacts](#-generated-reports--artifacts)
+- [🔒 Security & Research Ethics](#-security--research-ethics)
+
+---
+
+## ✨ Core Capabilities
+
+```
+PORNshell Master Suite
+ ├── 📡 Authoritative DNS Parity (Route53 vs UltraDNS, SOA Split-Brain, RFC 2308 NCACHE)
+ ├── 📧 Mail Posture & Hygiene (RFC 7208 SPF AST, 10-Lookup Budget, 1024-bit DKIM, DMARC p=none)
+ ├── 🔐 Cryptographic NSEC3 Proofs (Canonical Wire-Format SHA-1 + Base32hex, Opt-Out Verification)
+ ├── 🌐 BGP & RPKI Routing Posture (OriginAS AS29789 Resolution via ARIN '+' Flag & RIPEstat)
+ ├── 🔍 Static Code Sink Hunter (CWE-78, CWE-89, CWE-94, CWE-120, CWE-327, CWE-502)
+ ├── 🛡️ Web & API Desync Audits (CORS Reflections, HSTS, CSP Unsafe Directives, Clickjacking)
+ ├── ☁️ Cloud & Container Hardening (Docker Sockets, privileged: true, Host Namespaces, Wildcard IAM)
+ └── 🔑 Secret Leak Detection (Shannon Entropy Scoring H(X) >= 4.5 & High-Confidence Token Signatures)
+```
+
+---
+
+## ⚡ Quick Start: One-Shot Master Suite
+
+Every tool in PORNshell is pre-configured to execute with **zero required flags** and displays an interactive, real-time `10% ➔ 100%` terminal progress meter.
+
+To run all 5 security and reconnaissance audits sequentially:
 
 ```bash
+git clone https://github.com/willygailo/PORNshell.git
+cd PORNshell
+chmod +x master_audit_suite.py dns_posture_audit.py
 ./master_audit_suite.py
 ```
 
-This single command triggers the full 5-stage audit sequence across your codebase and infrastructure:
-1. **Authoritative DNS & NSEC3 Cryptographic Audit** (`dns_posture_audit.py`)
-2. **Static Code Sink & Injection Vulnerability Hunter** (`static_sink_hunter.py`)
-3. **HTTP Security Header & CORS Desync Inspector** (`http_header_posture.py`)
-4. **Cloud IAM & Container Manifest Escape Auditor** (`cloud_manifest_auditor.py`)
-5. **High-Entropy Secret & Token Leak Hunter** (`secret_entropy_scanner.py`)
+```text
+⚡ INITIALIZING MASTER PORNshell BUG HUNTING & PROTOCOL AUDITING SUITE ⚡
 
----
-
-## 🛠️ Standalone Tooling & CLI Usage
-
-### 1. Authoritative DNS, Mail Posture & NSEC3 Verifier (`dns_posture_audit.py`)
-Audits multi-provider DNS architectures, SOA split-brain, SPF lookup limits (RFC 7208), 1024-bit DKIM keys, and performs exact RFC 5155 SHA-1 Base32hex math to prove unsigned NSEC3 Opt-Out delegations.
-
-```bash
-# Run automated 10-stage audit (auto-exports JSON and Markdown reports)
-./dns_posture_audit.py
-
-# Compute RFC 5155 NSEC3 hash for an arbitrary domain
-python3 dns_posture_audit.py --hash-name pornhub.com. --salt - --iterations 0
+  [██░░░░░░░░░░░░░░░░░░]  10%  ▸ Initializing Master Suite...
+  [████░░░░░░░░░░░░░░░░]  20%  ▸ Launching 1/5: Authoritative DNS & NSEC3 Audit...
+  [████████░░░░░░░░░░░░]  40%  ▸ Launching 2/5: Static Sink & Code Vulnerability Scanner...
+  [████████████░░░░░░░░]  60%  ▸ Launching 3/5: HTTP Header & CORS Inspector...
+  [████████████████░░░░]  80%  ▸ Launching 4/5: Cloud IAM & Container Manifest Auditor...
+  [███████████████████░]  95%  ▸ Launching 5/5: Secrets & High-Entropy Token Scanner...
+  [████████████████████] 100%  ▸ All 5 Security & Recon Audits Successfully Executed!
 ```
 
-* **Generated Artifacts:**
-  * `dns_audit_report.json` — Raw structured protocol telemetry.
-  * `dns_audit_report.md` — Formatted executive markdown audit with findings and tables.
+---
+
+## 🛠️ Deep-Dive: Standalone Modules
+
+### 1. Authoritative DNS & RFC 5155 NSEC3 Verifier
+Bypasses recursive resolver caching (`+norec` / `RD=0`) to query authoritative nameservers directly. Detects SOA serial split-brain, negative caching asymmetry, and verifies `.com` TLD NSEC3 Opt-Out proofs:
+
+```bash
+# Automated 10-stage run (auto-exports JSON & Markdown reports)
+./dns_posture_audit.py
+
+# On-demand arbitrary domain RFC 5155 SHA-1 Base32hex hashing:
+python3 dns_posture_audit.py --hash-name pornhub.com. --salt - --iterations 0
+# Output: H(pornhub.com., salt=-, iter=0) = 16Q8UCBR2UANOBIG4KIQSO7M8FKBJB80
+```
+
+* **Mathematical Proof:**
+  $$\underbrace{\texttt{16Q8P9H742UHQOFJUKDG48IEU5DKIJKM}}_{\text{Owner Hash}} < \underbrace{\texttt{16Q8UCBR2UANOBIG4KIQSO7M8FKBJB80}}_{H(\texttt{pornhub.com.})} < \underbrace{\texttt{16Q92AGLF2OESUBI21BJBR0MFSUO41KG}}_{\text{Next Hashed Owner Name}}$$
+  Proves with `Flags=1` (Opt-Out) that the domain is provably an unsigned delegation in `.com`.
 
 ---
 
-### 2. Static Codebase Sink & Injection Hunter (`static_sink_hunter.py`)
-Scans Python, JavaScript/TypeScript, Go, C/C++, PHP, and Rust files for high-risk sinks (CWE-78, CWE-89, CWE-94, CWE-120, CWE-327, CWE-502).
+### 2. Static Codebase Sink & Injection Hunter
+Performs AST and pattern analysis across Python, JavaScript, TypeScript, Go, C/C++, and PHP source trees:
 
 ```bash
 ./.agent/skills/bug-hunting-tactics/scripts/static_sink_hunter.py --target .
 ```
+* **Flagged CWEs:** Command Injection (`CWE-78`), Unsafe Deserialization (`CWE-502`), Code Evaluation (`CWE-94`), SQL String Interpolation (`CWE-89`), Unbounded C Buffers (`CWE-120`), and Weak Cryptography (`CWE-327`).
 
 ---
 
-### 3. HTTP Security Header & CORS Auditor (`http_header_posture.py`)
-Audits HSTS, CSP (`'unsafe-inline'` / `'unsafe-eval'`), Clickjacking defenses, MIME-sniffing, and CORS credentials reflection vulnerabilities.
+### 3. HTTP Security Header & CORS Desync Auditor
+Audits web applications for missing or permissive transport and cross-origin security controls:
 
 ```bash
 ./.agent/skills/web-and-api-audit-methods/scripts/http_header_posture.py
 ```
+* **Evaluates:** Strict-Transport-Security (HSTS), Content-Security-Policy (flags `'unsafe-inline'` & `'unsafe-eval'`), Clickjacking (`X-Frame-Options`), MIME Sniffing, and credentialed CORS reflection (`ACAO: *` or `null` with `ACAC: true`).
 
 ---
 
-### 4. Cloud IAM & Container Hardening Auditor (`cloud_manifest_auditor.py`)
-Scans Dockerfiles, Docker Compose, Kubernetes manifests, and Terraform files for container breakouts (`privileged: true`, Docker socket mounts, `hostPID`) and wildcard IAM escalations.
+### 4. Cloud IAM & Container Manifest Escape Auditor
+Inspects Dockerfiles, Docker Compose, Kubernetes specs, and Terraform files for container breakout vectors:
 
 ```bash
 ./.agent/skills/cloud-iam-and-container-hardening/scripts/cloud_manifest_auditor.py --target .
 ```
+* **Checks:** `privileged: true`, Docker socket mounts (`/var/run/docker.sock`), host namespaces (`hostPID`, `hostNetwork`), and wildcard IAM permissions (`Action: *`).
 
 ---
 
-### 5. High-Entropy Secret & Token Scanner (`secret_entropy_scanner.py`)
-Performs Shannon entropy analysis ($H(X) \ge 4.5$) combined with regex signatures to catch leaked AWS, GitHub, Google Cloud, Slack tokens, and private keys.
+### 5. High-Entropy Secret & Token Leak Scanner
+Combines Shannon Entropy calculation ($H(X) \ge 4.5$) with high-confidence regex signatures to uncover leaked credentials:
 
 ```bash
 ./.agent/skills/secrets-and-api-leak-detection/scripts/secret_entropy_scanner.py --target .
 ```
+* **Signatures:** AWS Key IDs (`AKIA...`), GitHub Tokens (`ghp_...`), Google API Keys (`AIza...`), Slack API Tokens (`xoxb-...`), and OpenSSH/RSA Private Keys.
 
 ---
 
-## 🧠 Modular Agent Skills Architecture (`.agent/skills/`)
+### 6. Security Regression & PoC Triage Scaffolder
+Generates non-weaponized, sandboxed test cases to safely reproduce vulnerabilities and verify defensive patch efficacy:
 
-This repository is built as an extensible **Antigravity Agent Skills** workspace:
+```bash
+./.agent/skills/poc-reproduction-and-triage/scripts/triage_scaffolder.py --target-module auth
+```
 
-| Skill | Directory | Purpose |
+---
+
+## 🧠 Modular Agent Skills Architecture
+
+PORNshell follows the **Antigravity Skills Standard** (`.agent/skills/`). Each module contains a self-contained `SKILL.md` runbook, references, and executable scripts:
+
+| Skill Package | Location | Focus Area |
 |---|---|---|
-| **`bug-hunting-tactics`** | `.agent/skills/bug-hunting-tactics/` | Source-to-sink taint analysis, parser differentials, race conditions, and variant analysis. |
-| **`dns-and-protocol-recon`** | `.agent/skills/dns-and-protocol-recon/` | Multi-NS parity, SOA split-brain, SPF AST, DKIM RSA key size, and RFC 5155 NSEC3 proofs. |
-| **`cve-triage-and-exploitability`** | `.agent/skills/cve-triage-and-exploitability/` | Correlating CVSS vectors with FIRST EPSS probability, CISA KEV status, and weaponized PoCs. |
-| **`web-and-api-audit-methods`** | `.agent/skills/web-and-api-audit-methods/` | HTTP parser desync (CL.TE/TE.CL), BOLA/IDOR object graph audits, and CORS/JWT analysis. |
-| **`cloud-iam-and-container-hardening`**| `.agent/skills/cloud-iam-and-container-hardening/` | Auditing IAM privilege escalation paths, IMDSv1 SSRF exposure, and container escapes. |
-| **`secrets-and-api-leak-detection`** | `.agent/skills/secrets-and-api-leak-detection/` | Shannon entropy scanning, git credential extraction, and cloud token detection. |
-| **`poc-reproduction-and-triage`** | `.agent/skills/poc-reproduction-and-triage/` | Safe triage, minimal trigger isolation, patch verification, and regression test generation. |
+| **`dns-and-protocol-recon`** | [`.agent/skills/dns-and-protocol-recon/`](./.agent/skills/dns-and-protocol-recon/) | Authoritative NS parity, SPF AST, DKIM RSA audit, RFC 5155 NSEC3 math, BGP RPKI. |
+| **`bug-hunting-tactics`** | [`.agent/skills/bug-hunting-tactics/`](./.agent/skills/bug-hunting-tactics/) | Source-to-sink taint analysis, parser differentials, race conditions, memory safety. |
+| **`web-and-api-audit-methods`** | [`.agent/skills/web-and-api-audit-methods/`](./.agent/skills/web-and-api-audit-methods/) | HTTP desync, CORS misconfigurations, BOLA/IDOR access controls, transport security. |
+| **`cloud-iam-and-container-hardening`** | [`.agent/skills/cloud-iam-and-container-hardening/`](./.agent/skills/cloud-iam-and-container-hardening/) | IAM privilege escalation, IMDSv1 tokenless SSRF exposure, container escapes. |
+| **`secrets-and-api-leak-detection`** | [`.agent/skills/secrets-and-api-leak-detection/`](./.agent/skills/secrets-and-api-leak-detection/) | Shannon entropy analysis, hardcoded private keys, cloud API credential leaks. |
+| **`cve-triage-and-exploitability`** | [`.agent/skills/cve-triage-and-exploitability/`](./.agent/skills/cve-triage-and-exploitability/) | CVSS vector scoring, FIRST EPSS exploitation probability, CISA KEV correlation. |
+| **`poc-reproduction-and-triage`** | [`.agent/skills/poc-reproduction-and-triage/`](./.agent/skills/poc-reproduction-and-triage/) | Safe trigger isolation, patch verification, sanitizer traces (ASan/UBSan). |
 
 ---
 
-## 🔒 Security & Code Philosophy
+## 📊 Generated Reports & Artifacts
 
-Code is fiction until it executes. This toolkit provides pure structural, protocol-level telemetry, security verification, and auditing capabilities for researchers and defense engineers.
+Audits automatically output machine-readable telemetry and executive documentation:
 
+| Output Artifact | Format | Description |
+|---|---|---|
+| `dns_audit_report.json` | JSON | Complete DNS record sets, raw SOA structures, DKIM key fingerprints, and NSEC3 proof arrays. |
+| `dns_audit_report.md` | Markdown | Executive audit report with formatted comparison tables and remediation guidance. |
+| `sink_hunt_report.json` | JSON | Identified code sinks mapped by file, line number, CWE identifier, and severity level. |
+
+---
+
+## 🔒 Security & Research Ethics
+
+* **Educational & Defensive Purpose:** This software is designed exclusively for authorized penetration testing, security auditing, protocol research, and defensive hardening.
+* **Non-Malicious Execution:** All proof-of-concept scaffolding and audit scripts are structured to evaluate defensive boundaries safely without delivering hostile payloads.
