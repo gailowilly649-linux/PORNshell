@@ -39,11 +39,14 @@ ENV/
 env.bak/
 venv.bak/
 
-# 🔒 Protected Original Source Code (Private development backups)
+# 🔒 Protected Original Source Code & Obfuscation Build Pipeline (Private to prevent reverse engineering)
 .src_private/
 src_clean/
 *.orig.py
 *.bak.py
+build_obfuscated.sh
+build_*.sh
+*.obf.sh
 
 # 🛡️ PyArmor internal caches, logs & build temporary trees
 .pyarmor/
@@ -80,6 +83,9 @@ coverage.xml
 Thumbs.db
 
 # Generated audit output reports & raw telemetry dumps (ignore dynamic scan outputs)
+PORNHUB_EXPLOIT_REPORT.md
+*_EXPLOIT_REPORT.md
+*_exploit_report.md
 dns_audit_report.json
 dns_audit_report.md
 sink_hunt_report.json
