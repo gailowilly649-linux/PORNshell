@@ -1,16 +1,20 @@
+# ==============================================================================
+# PORNshell Git Ignore Configuration
+# Protects private development source, PyArmor build artifacts, logs, and venvs
+# ==============================================================================
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
 
-# Distribution / packaging
-.Python
+# C extensions & build artifacts
+*.o
+*.obj
 build/
-develop-eggs/
 dist/
+develop-eggs/
 downloads/
 eggs/
 .eggs/
@@ -35,7 +39,24 @@ ENV/
 env.bak/
 venv.bak/
 
-# Testing & coverage
+# 🔒 Protected Original Source Code (Private development backups)
+.src_private/
+src_clean/
+*.orig.py
+*.bak.py
+
+# 🛡️ PyArmor internal caches, logs & build temporary trees
+.pyarmor/
+.pyarmor_home/
+pyarmor.bug.log
+pyarmor_runtime_*/
+**/.pyarmor_home/
+**/pyarmor.bug.log
+**/pyarmor_runtime_*/
+dist_*/
+test_dist/
+
+# Testing & coverage caches
 .pytest_cache/
 .coverage
 .coverage.*
@@ -46,13 +67,14 @@ coverage.xml
 *.cover
 *.py,cover
 
-# IDEs & Editor configurations
+# IDEs, OS & Editor temporary files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
+Thumbs.db
 
 # Generated audit output reports (keep templates, ignore temporary raw dumps)
 dns_audit_report.json
@@ -62,7 +84,7 @@ scan_report.json
 scan_report.md
 test_security_regression.py
 
-# Secrets, certificates and credential dumps
+# Sensitive credentials, certificates and dumps
 *.pem
 *.key
 *.crt
@@ -72,4 +94,3 @@ test_security_regression.py
 *.id_ed25519
 .env.*
 !.env.example
-

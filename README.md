@@ -6,6 +6,7 @@
   <p align="center">
     <a href="#-core-capabilities"><img src="https://img.shields.io/badge/Architecture-WG%20Skills-9cf?style=for-the-badge" alt="Antigravity Skills"></a>
     <a href="#-quick-start-one-shot-master-suite"><img src="https://img.shields.io/badge/Pipeline-10%25%20%E2%9E%94%20100%25%20Auto-brightgreen?style=for-the-badge" alt="Automated Pipeline"></a>
+    <a href="#-code-obfuscation--tamper-protection"><img src="https://img.shields.io/badge/Protected%20with-PyArmor-orange?style=for-the-badge&logo=shield" alt="Protected with PyArmor"></a>
     <a href="#-license--disclaimer"><img src="https://img.shields.io/badge/Security-Defensive%20Research-red?style=for-the-badge" alt="Security Research"></a>
     <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"></a>
   </p>
@@ -14,13 +15,14 @@
 ---
 
 > *"Code is fiction until it executes."*  
-> **PORNshell** is a high-performance offensive recon and defensive auditing framework designed for security researchers, infrastructure architects, and penetration testers. It automates complex protocol-level verifications—ranging from multi-provider DNS split-brain detection to cryptographic NSEC3 hash proofs, AST taint analysis, and container privilege escalation auditing.
+> **PORNshell** is a high-performance offensive recon and defensive auditing framework designed for security researchers, infrastructure architects, and penetration testers. It automates complex protocol-level verifications—ranging from multi-provider DNS split-brain detection to cryptographic NSEC3 hash proofs, AST taint analysis, container privilege escalation auditing, and high-entropy secret detection.
 
 ---
 
 ## 📑 Table of Contents
 - [✨ Core Capabilities](#-core-capabilities)
 - [⚡ Quick Start: One-Shot Master Suite](#-quick-start-one-shot-master-suite)
+- [🛡️ Code Protection & Obfuscation Pipeline](#️-code-protection--obfuscation-pipeline)
 - [🛠️ Deep-Dive: Standalone Modules](#️-deep-dive-standalone-modules)
   - [1. Authoritative DNS & RFC 5155 NSEC3 Verifier](#1-authoritative-dns--rfc-5155-nsec3-verifier)
   - [2. Static Codebase Sink & Injection Hunter](#2-static-codebase-sink--injection-hunter)
@@ -59,7 +61,7 @@ To run all 5 security and reconnaissance audits sequentially:
 ```bash
 git clone https://github.com/willygailo/PORNshell.git
 cd PORNshell
-chmod +x master_audit_suite.py dns_posture_audit.py
+chmod +x master_audit_suite.py dns_posture_audit.py build_obfuscated.sh
 ./master_audit_suite.py
 ```
 
@@ -77,13 +79,43 @@ chmod +x master_audit_suite.py dns_posture_audit.py
 
 ---
 
+## 🛡️ Code Protection & Obfuscation Pipeline
+
+PORNshell includes an automated build pipeline powered by **PyArmor** to protect and encrypt all production Python scripts into tamper-resistant bytecode before distribution.
+
+### One-Click Obfuscation Build
+Run the automated build script whenever you make updates to the clean source code:
+
+```bash
+./build_obfuscated.sh
+```
+
+```text
+⚡ INITIALIZING AUTOMATED PYARMOR CODE OBFUSCATION PIPELINE ⚡
+
+  [██░░░░░░░░░░░░░░░░░░]  10%  ▸ Backing up clean source code to .src_private/...
+  [████░░░░░░░░░░░░░░░░]  20%  ▸ Configuring isolated PyArmor workspace environment...
+  [████████░░░░░░░░░░░░]  40%  ▸ Obfuscating root orchestrators (master_audit_suite.py & cve_toolkit.py)...
+  [████████████░░░░░░░░]  60%  ▸ Obfuscating modular DNS & RFC 5155 NSEC3 cryptographic engine...
+  [████████████████░░░░]  80%  ▸ Obfuscating .agent/skills tactical security scripts...
+  [██████████████████░░]  90%  ▸ Deploying encrypted bytecode & runtime libraries...
+  [████████████████████] 100%  ▸ All scripts successfully encrypted and obfuscated with PyArmor!
+
+✔ CODEBASE FULLY ARMORED & PROTECTED.
+```
+
+* **Clean Source Staging:** Clean, readable source files are backed up to `.src_private/` (which is permanently excluded by `.gitignore`).
+* **Protected Distribution:** Public `.py` entrypoints are transformed into encrypted runtime files, protecting your internal logic while remaining executable on any compatible target.
+
+---
+
 ## 🛠️ Deep-Dive: Standalone Modules
 
 ### 1. Authoritative DNS & RFC 5155 NSEC3 Verifier
 Bypasses recursive resolver caching (`+norec` / `RD=0`) to query authoritative nameservers directly. Detects SOA serial split-brain, negative caching asymmetry, and verifies `.com` TLD NSEC3 Opt-Out proofs:
 
 ```bash
-# Automated 10-stage run (auto-exports JSON & Markdown reports)
+# Automated run (auto-exports JSON & Markdown reports)
 ./dns_posture_audit.py
 
 # On-demand arbitrary domain RFC 5155 SHA-1 Base32hex hashing:
@@ -93,7 +125,7 @@ python3 dns_posture_audit.py --hash-name pornhub.com. --salt - --iterations 0
 
 * **Mathematical Proof:**
   $$\underbrace{\texttt{16Q8P9H742UHQOFJUKDG48IEU5DKIJKM}}_{\text{Owner Hash}} < \underbrace{\texttt{16Q8UCBR2UANOBIG4KIQSO7M8FKBJB80}}_{H(\texttt{pornhub.com.})} < \underbrace{\texttt{16Q92AGLF2OESUBI21BJBR0MFSUO41KG}}_{\text{Next Hashed Owner Name}}$$
-  Proves with `Flags=1` (Opt-Out) that the domain is provably an unsigned delegation in `.com`.
+  Proves with `Flags=1` (Opt-Out) that the target domain resides in an unsigned delegation span in `.com`.
 
 ---
 
