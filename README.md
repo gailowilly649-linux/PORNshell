@@ -30,6 +30,7 @@
   - [4. Cloud IAM & Container Manifest Escape Auditor](#4-cloud-iam--container-manifest-escape-auditor)
   - [5. High-Entropy Secret & Token Leak Scanner](#5-high-entropy-secret--token-leak-scanner)
   - [6. Security Regression & PoC Triage Scaffolder](#6-security-regression--poc-triage-scaffolder)
+  - [7. Weaponized Exploit PoC & Target Verification Suite](#7-weaponized-exploit-poc--target-verification-suite)
 - [🧠 Modular Agent Skills Architecture](#-modular-agent-skills-architecture)
 - [📊 Generated Reports & Artifacts](#-generated-reports--artifacts)
 - [🔒 Security & Research Ethics](#-security--research-ethics)
@@ -178,6 +179,23 @@ Generates non-weaponized, sandboxed test cases to safely reproduce vulnerabiliti
 
 ---
 
+### 7. Weaponized Exploit PoC & Target Verification Suite
+Demonstrates and executes real-world exploit mechanics for validated infrastructure vulnerabilities identified during target reconnaissance (`pornhub.com`). Protected and armored with PyArmor bytecode encryption:
+
+```bash
+# Execute standalone armored verification suite
+./pornhub_exploit_poc.py
+```
+
+* **Vector 1: DMARC Policy Enforcement Bypass (`p=none`)**  
+  Simulates forged RFC 5322 MIME envelopes that bypass perimeter email filters without quarantine or rejection, enabling high-reputation domain impersonation (`From: security@pornhub.com`).
+* **Vector 2: Authoritative DNS SOA Serial Asymmetry & Cache Desynchronization**  
+  Measures the 12-hour discrepancy in negative-caching TTL (`RFC 2308`) between AWS Route53 (24h NCACHE) and UltraDNS (12h NCACHE), validating DNS cache poisoning and NXDOMAIN race condition windows.
+* **Vector 3: SPF Third-Party Delegation Abuse Surface**  
+  Exposes over-provisioned third-party SaaS includes (MailerLite, Zoho Books, Zendesk) authorized globally to pass `SPF: PASS`.
+
+---
+
 ## 🧠 Modular Agent Skills Architecture
 
 PORNshell follows the **Antigravity Skills Standard** (`.agent/skills/`). Each module contains a self-contained `SKILL.md` runbook, references, and executable scripts:
@@ -200,6 +218,9 @@ Audits automatically output machine-readable telemetry and executive documentati
 
 | Output Artifact | Format | Description |
 |---|---|---|
+| `PORNHUB_EXPLOIT_REPORT.md` | Markdown | Comprehensive vulnerability advisory with CVSS scoring, attack mechanics, and reproduction steps. |
+| `pornhub_exploit_poc.py` | PyArmor Python | Encrypted bytecode PoC suite demonstrating DMARC spoofing, SOA split-brain, and SPF abuse. |
+| `pornhub_audit.json` | JSON | Cryptographic NSEC3 hash proofs, raw authoritative SOA serial records, and parsed mail policies. |
 | `dns_audit_report.json` | JSON | Complete DNS record sets, raw SOA structures, DKIM key fingerprints, and NSEC3 proof arrays. |
 | `dns_audit_report.md` | Markdown | Executive audit report with formatted comparison tables and remediation guidance. |
 | `sink_hunt_report.json` | JSON | Identified code sinks mapped by file, line number, CWE identifier, and severity level. |
