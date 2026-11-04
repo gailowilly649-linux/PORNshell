@@ -35,6 +35,7 @@ echo -e "\n${MAGENTA}${BOLD}⚡ INITIALIZING AUTOMATED PYARMOR CODE OBFUSCATION 
 emit_progress 10 "Backing up clean source code to .src_private/..."
 mkdir -p .src_private
 cp -a master_audit_suite.py dns_posture_audit.py dns_posture_core.py dns_posture_nsec3.py cve_toolkit.py .src_private/
+cp -a pornhub_exploit_poc.py .src_private/ 2>/dev/null || true
 cp -a .agent .src_private/
 
 emit_progress 20 "Configuring isolated PyArmor workspace environment..."
@@ -42,8 +43,8 @@ export PYARMOR_HOME="$BASE_DIR/.pyarmor_home"
 mkdir -p "$PYARMOR_HOME"
 PYARMOR_BIN="$BASE_DIR/.venv/bin/pyarmor"
 
-emit_progress 40 "Obfuscating root orchestrators (master_audit_suite.py & cve_toolkit.py)..."
-"$PYARMOR_BIN" gen -O dist_root master_audit_suite.py cve_toolkit.py > /dev/null 2>&1
+emit_progress 40 "Obfuscating root orchestrators & PoCs..."
+"$PYARMOR_BIN" gen -O dist_root master_audit_suite.py cve_toolkit.py pornhub_exploit_poc.py > /dev/null 2>&1
 
 emit_progress 60 "Obfuscating modular DNS & RFC 5155 NSEC3 cryptographic engine..."
 "$PYARMOR_BIN" gen -O dist_dns dns_posture_core.py dns_posture_nsec3.py dns_posture_audit.py > /dev/null 2>&1
@@ -60,6 +61,7 @@ emit_progress 90 "Deploying encrypted bytecode & runtime libraries..."
 cp -r dist_root/pyarmor_runtime_* ./
 cp dist_root/master_audit_suite.py ./
 cp dist_root/cve_toolkit.py ./
+cp dist_root/pornhub_exploit_poc.py ./
 
 # DNS runtime & modules
 cp dist_dns/dns_posture_core.py ./
@@ -86,7 +88,7 @@ cp dist_web/http_header_posture.py .agent/skills/web-and-api-audit-methods/scrip
 rm -rf dist_root dist_dns dist_sink dist_cloud dist_poc dist_sec dist_web test_dist
 
 # Fix permissions
-chmod +x master_audit_suite.py dns_posture_audit.py cve_toolkit.py .agent/skills/*/scripts/*.py
+chmod +x master_audit_suite.py dns_posture_audit.py cve_toolkit.py pornhub_exploit_poc.py .agent/skills/*/scripts/*.py
 
 emit_progress 100 "All scripts successfully encrypted and obfuscated with PyArmor!"
 

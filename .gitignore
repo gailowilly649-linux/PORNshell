@@ -49,9 +49,12 @@ src_clean/
 .pyarmor/
 .pyarmor_home/
 pyarmor.bug.log
+pyarmor.debug.log
+*.pyarmor_capsule.zip
 pyarmor_runtime_*/
 **/.pyarmor_home/
 **/pyarmor.bug.log
+**/pyarmor.debug.log
 **/pyarmor_runtime_*/
 dist_*/
 test_dist/
@@ -76,13 +79,26 @@ coverage.xml
 .DS_Store
 Thumbs.db
 
-# Generated audit output reports (keep templates, ignore temporary raw dumps)
+# Generated audit output reports & raw telemetry dumps (ignore dynamic scan outputs)
 dns_audit_report.json
 dns_audit_report.md
 sink_hunt_report.json
 scan_report.json
 scan_report.md
+pornhub_audit.json
+pornhub_audit.md
+*_audit.json
+*_audit.md
+*.audit.json
+*.audit.md
 test_security_regression.py
+
+# Temporary test harnesses, diffs & scratch scripts
+test_*.py
+!test_security_regression.py
+*.head
+*.diff
+*.patch
 
 # Sensitive credentials, certificates and dumps
 *.pem
