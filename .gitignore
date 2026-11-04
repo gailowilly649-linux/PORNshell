@@ -85,12 +85,18 @@ dns_audit_report.md
 sink_hunt_report.json
 scan_report.json
 scan_report.md
+rce_audit_report.json
+rce_audit_report.md
 pornhub_audit.json
 pornhub_audit.md
 *_audit.json
 *_audit.md
 *.audit.json
 *.audit.md
+*_report.json
+*_report.md
+*.report.json
+*.report.md
 test_security_regression.py
 
 # Temporary test harnesses, diffs & scratch scripts
