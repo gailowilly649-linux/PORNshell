@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+
+# IDEs & Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Generated audit output reports (keep templates, ignore temporary raw dumps)
+dns_audit_report.json
+dns_audit_report.md
+sink_hunt_report.json
+scan_report.json
+scan_report.md
+test_security_regression.py
+
+# Secrets, certificates and credential dumps
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+*.id_rsa
+*.id_ed25519
+.env.*
+!.env.example
+
