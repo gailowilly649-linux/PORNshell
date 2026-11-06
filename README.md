@@ -34,6 +34,7 @@
   - [5. High-Entropy Secret & Token Leak Scanner](#5-high-entropy-secret--token-leak-scanner)
   - [6. Security Regression & PoC Triage Scaffolder](#6-security-regression--poc-triage-scaffolder)
   - [7. Weaponized Exploit PoC & Target Verification Suite](#7-weaponized-exploit-poc--target-verification-suite)
+  - [8. OpenSSH Posture, Cryptographic Suite & CVE Auditor](#8-openssh-posture-cryptographic-suite--cve-auditor)
 - [🧠 Modular Agent Skills Architecture](#-modular-agent-skills-architecture)
 - [📊 Generated Reports & Artifacts](#-generated-reports--artifacts)
 - [🔒 Security & Research Ethics](#-security--research-ethics)
@@ -55,7 +56,8 @@ PORNshell Master Suite
  ├── 🔍 Static Code Sink Hunter (CWE-78, CWE-89, CWE-94, CWE-120, CWE-327, CWE-502)
  ├── 🛡️ Web & API Desync Audits (CORS Reflections, HSTS, CSP Unsafe Directives, Clickjacking)
  ├── ☁️ Cloud & Container Hardening (Docker Sockets, privileged: true, Host Namespaces, Wildcard IAM)
- └── 🔑 Secret Leak Detection (Shannon Entropy Scoring H(X) >= 4.5 & High-Confidence Token Signatures)
+ ├── 🔑 Secret Leak Detection (Shannon Entropy Scoring H(X) >= 4.5 & High-Confidence Token Signatures)
+ └── 🛡️ OpenSSH Security & CVE Auditor (regreSSHion CVE-2024-6387, Terrapin CVE-2023-48795, Strict-KEX, CIS)
 ```
 
 ---
@@ -203,6 +205,30 @@ Demonstrates and executes real-world exploit mechanics for validated infrastruct
 
 ---
 
+### 8. OpenSSH Posture, Cryptographic Suite & CVE Auditor
+A zero-dependency, automated OpenSSH inspection, cryptographic suite auditor, and vulnerability assessment engine. Evaluates live SSH daemons, banner strings, version identifiers, and local `sshd_config` files against CIS benchmarks, cryptographic best practices, and critical CVE advisories (e.g. regreSSHion `CVE-2024-6387`, Terrapin `CVE-2023-48795`, `CVE-2023-38408` PKCS#11 provider RCE):
+
+```bash
+# Direct execution via wrapper or python entrypoint
+./openssh.sh --test-cves
+python3 openssh.py --test-cves
+
+# Live daemon inspection (KEX negotiation, Strict KEX, cipher suites)
+./openssh.sh -t 192.168.1.50 -p 22
+
+# Offline version triage against known CVE advisories
+./openssh.sh -v 8.9p1
+
+# Local sshd_config hardening compliance audit
+./openssh.sh -c /etc/ssh/sshd_config
+```
+
+* **Live SSH_MSG_KEXINIT Analysis:** Decodes raw binary SSH packets to verify key exchange algorithms, AEAD ciphers, MAC algorithms, host key types, and detects missing `kex-strict-s-v00@openssh.com` (Terrapin attack surface).
+* **CIS Hardening Compliance:** Audits local `sshd_config` for directives including `PermitRootLogin`, `PasswordAuthentication`, `MaxAuthTries`, `LoginGraceTime`, `X11Forwarding`, and `ClientAliveInterval`.
+* **Obfuscated Distribution:** The engine is packaged with layered in-memory byte decompression and dynamic bytecode execution to safeguard internal logic and signatures.
+
+---
+
 ## 🧠 Modular Agent Skills Architecture
 
 PORNshell follows the **Antigravity Skills Standard** (`.agent/skills/`). Each module contains a self-contained `SKILL.md` runbook, references, and executable scripts:
@@ -228,6 +254,7 @@ Audits automatically output machine-readable telemetry and executive documentati
 | `PORNHUB_EXPLOIT_REPORT.md` | Markdown | Comprehensive vulnerability advisory with CVSS scoring, attack mechanics, and reproduction steps. |
 | `pornhub_exploit_poc.py` | PyArmor Python | Encrypted bytecode PoC suite demonstrating DMARC spoofing, SOA split-brain, and SPF abuse. |
 | `pornhub_audit.json` | JSON | Cryptographic NSEC3 hash proofs, raw authoritative SOA serial records, and parsed mail policies. |
+| `openssh_audit_report.json` | JSON | Comprehensive OpenSSH audit results: negotiated KEX/cipher suites, strict-KEX status, CVE findings, and CIS config score. |
 | `dns_audit_report.json` | JSON | Complete DNS record sets, raw SOA structures, DKIM key fingerprints, and NSEC3 proof arrays. |
 | `dns_audit_report.md` | Markdown | Executive audit report with formatted comparison tables and remediation guidance. |
 | `sink_hunt_report.json` | JSON | Identified code sinks mapped by file, line number, CWE identifier, and severity level. |

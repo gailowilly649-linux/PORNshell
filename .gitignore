@@ -44,6 +44,8 @@ venv.bak/
 src_clean/
 *.orig.py
 *.bak.py
+*.bak
+*.orig
 build_obfuscated.sh
 build_*.sh
 *.obf.sh
@@ -106,6 +108,10 @@ pornhub_audit.md
 test_security_regression.py
 
 # Temporary test harnesses, diffs & scratch scripts
+scratch/
+prompt.text
+*.tmp
+*.temp
 test_*.py
 !test_security_regression.py
 *.head
