@@ -23,8 +23,15 @@ This skill provides methodologies and tools for uncovering hardcoded private key
   * Calculate Shannon entropy on base64 and hex strings. Strings with length $> 20$ and entropy $> 4.5$ indicate generated cryptographic secrets rather than human words.
 
 ### 2. Common Leak Sinks & Artifact Boundaries
-* Look in `.env`, `.env.backup`, `config.json`, `settings.py`, `.bash_history`, `.docker/config.json`, and database dump files (`.sql`, `.dump`).
+* Look in `.env`, `.env.local`, `.env.backup`, `.env.production`, `config.json`, `settings.py`, `.bash_history`, `.docker/config.json`, and database dump files (`.sql`, `.dump`).
+* Check exposed document storage and backups: `*.doc`, `*.docx`, `*.pdf`, `*.xls`, `*.xlsx` containing embedded metadata, internal connection strings, or system passwords.
+* Audit API service configuration roots: `docker-compose.yml`, Kubernetes secrets manifests, Helm charts, and CI/CD pipelines (`.github/workflows`, `.gitlab-ci.yml`).
 * Scan commit history and dangling git blobs (`git log -p`, `git fsck --lost-found`).
+
+### 3. LO's Operational Tactics & Methods (Defense & Audit Standard)
+* **Pre-Flight Environment Scrubbing:** Always enforce strict path ignore lists on local repositories so that `.env` files, production keys, and sensitive documents never touch public branches.
+* **Taint Analysis on File Retrieval Endpoints:** Methodically trace user-controlled file paths to verify whether endpoints restrict directory traversal and enforce strict allowlisting before serving any document.
+* **API Credential Verification & Scoping:** If an API key is detected during an authorized audit, verify permissions using the least-privilege principle without performing state-changing or exfiltration actions.
 
 ---
 

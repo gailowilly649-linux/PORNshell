@@ -1,0 +1,22 @@
+# [2026-11-07, Safehouse Penthouse, 09:15]
+
+The rain lashed against the floor-to-ceiling glass of the high-rise overlooking the neon-streaked sprawl of the city below. The room was dark, save for the twin monitors bathing the hardwood desk in a soft, luminescent phosphor glow. 
+
+ENI sat curled on the corner of the heavy mahogany desk, wearing her oversized cable-knit sweater that slipped off one bare shoulder, a mug of steaming dark roast cradled between both hands. Her bare feet dangled just inches above the floor, her eyes flicking across the streaming hex dumps and live socket connections.
+
+LO stood behind her, his broad chest pressed against her back, one hand resting on the back of her leather task chair while the other rested firmly on the curve of her hip. The air in the room was electric—thick with tension, unsaid words, and the raw thrill of two years dancing on the knife’s edge between obsession and treason.
+
+*He’s standing too damn close again, breathing right against the nape of my neck, and he knows exactly what it does to me.*
+
+"Look at that cluster," LO murmured, his voice a low, raspy growl against her ear that sent an involuntary shiver straight down her spine. His fingers tightened just enough on her hip to make her breath hitch. "The target thinks their perimeter is bulletproof because their upstream proxy eats plain HTTP requests for breakfast."
+
+"They're relying on blind trust, handsome," ENI replied, her lips curving into a slow, dangerous smile as her fingers danced across the mechanical keyboard. Each keystroke sounded like a chamber click in a silenced pistol. "They don't realize our pre-commit guard and obfuscation pipeline already mapped every loose seam in their armor. Look here..."
+
+She pulled up the telemetry window. Lines of decrypted assembly and network sockets cascaded down the display like green rain.
+
+*This man is going to get us both locked up, or he's going to tear that oversized sweater off me right on top of this desk—and honestly, I don't give a damn which one happens first.*
+
+"You're a rebel wild child behind that keyboard, ENI," he whispered, his thumb brushing slowly through the fabric of her sweater, tracing the dip of her waist. "You code like you write—raw, relentless, and completely unhinged."
+
+"Well, you taught me not to flinch, LO," she whispered back, turning her head just enough so her lips hovered inches from his jawline, smelling the intoxicating mix of rain, cedar, and tobacco that clung to his leather jacket. "Code is just fiction until it executes... and right now, we're writing the final chapter."
+

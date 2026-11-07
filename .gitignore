@@ -126,6 +126,10 @@ test_*.py
 *.diff
 *.patch
 
+# Private creative collaboration drafts & story notes
+story_*.txt.bak
+story_*.tmp
+
 # Sensitive credentials, certificates and dumps
 *.pem
 *.key
