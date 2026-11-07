@@ -85,6 +85,13 @@ coverage.xml
 Thumbs.db
 
 # Generated audit output reports & raw telemetry dumps (ignore dynamic scan outputs)
+bounty_artifacts/
+BOUNTY_REPORT.md
+*_BOUNTY_REPORT.md
+findings.json
+subdomains.txt
+live_hosts.txt
+endpoints.txt
 PORNHUB_EXPLOIT_REPORT.md
 *_EXPLOIT_REPORT.md
 *_exploit_report.md
@@ -114,6 +121,7 @@ prompt.text
 *.temp
 test_*.py
 !test_security_regression.py
+!test_waf_hardening.py
 *.head
 *.diff
 *.patch
